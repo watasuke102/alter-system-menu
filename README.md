@@ -1,4 +1,4 @@
-# sysmenu
+# alter-system-menu
 bash-based system configration scripts for Alter Linux i3wm edition
 
 ---
@@ -22,7 +22,7 @@ This script can do:
 
 
 ## how to use
-clone this repository, and run `./sysmenu`
+clone this repository, and run `./alter-system-menu`
 
 ## require packages
 - arandr
