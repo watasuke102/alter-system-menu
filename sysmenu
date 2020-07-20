@@ -10,12 +10,52 @@
 #
 set -u
 
+selected=""
+
 function sound {
 	echo "sound"
 }
 
-function software_manage {
-	echo "software_manage"
+function package_manage {
+	while true; do
+
+	clear
+    echo " ┌──────────────────┐ "
+    echo " │ [Package manage] │"
+    echo " ├──────────────────┴───────────────────────────┐"
+    echo " │  1  Update All Packages   2  Search Package  │"
+    echo " │  3  Add Package           4  Remove Package  │"
+    echo " │                                              │"
+    echo " │                            0  Canncel        │"
+    echo " └──────────────────────────────────────────────┘"
+
+    echo -n " [select] > "
+	read -n1 selected
+	echo ""
+	if [[ ${selected} == "0" ]]; then
+		return
+	fi
+
+	if [[ ${selected} != "1" ]]; then
+		local package_name
+    	echo -n " [packages name] > "
+		read package_name
+		if [[ ${package_name} == "0" ]]; then
+			return
+		fi
+	fi
+
+
+	echo ""
+	case ${selected} in
+		1) sudo pacman -Syu                ;;
+		2)      pacman -Ss ${package_name} ;;
+		3) sudo pacman -Sy ${package_name} ;;
+		4) sudo pacman -R  ${package_name} ;;
+	esac
+	echo ""
+
+	done
 }
 
 function time_settings {
@@ -29,7 +69,7 @@ while true; do
     echo " │ [System Menu] │"
     echo " ├───────────────┴─────────────────────────┐"
     echo " │  1  Display         2  Network          │"
-    echo " │  3  Sound           4  Software manage  │"
+    echo " │  3  Sound           4  Package manage   │"
     echo " │  5  Time settings   6  Taskmanager      │"
     echo " │                                         │"
     echo " │                     0  Exit             │"
@@ -44,7 +84,7 @@ while true; do
 		1) arandr          ;;
 		2) nmtui           ;;
 		3) sound           ;;
-		4) software_manage ;;
+		4) package_manage ;;
 		5) time_settings   ;;
 		6) htop            ;;
 	esac
