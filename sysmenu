@@ -59,8 +59,43 @@ function package_manage () {
 	done
 }
 
-function time_settings {
-	echo "time_settings"
+function time_settings () {
+	while true; do
+
+	clear
+    echo " ┌─────────────────┐ "
+    echo " │ [Time Settings] │"
+    echo " ├─────────────────┴─────────────────────────────────┐"
+    echo " │  1 - Change Time Zone      2 - Sync network time  │"
+    echo " │  3 - Write hardware clock  4 - Change ntp         │"
+    echo " │                                                   │"
+    echo " │                            0 - Canncel            │"
+    echo " └───────────────────────────────────────────────────┘"
+
+    echo -n " [select] > "
+	read -n1 selected
+
+	if [[ ${selected} == "4" ]]; then
+    	echo -n "Enable to NTP? [y/n]: "
+		while true; do
+		local ntp
+			read -n1 ntp
+			[[ ${ntp} == "y" ||  ${ntp} == "n" ]] && exit 0
+		done
+	fi
+
+
+	echo ""
+	case ${selected} in
+		0) return                     ;;
+		1) tzselect                   ;;
+		2) ntpdate                    ;;
+		3) hwclock --systohc --local  ;;
+		4) timedatectl set-ntp ${ntp} ;;
+	esac
+	echo ""
+
+	done
 }
 
 function main () {
