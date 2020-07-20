@@ -21,7 +21,7 @@ function package_manage () {
     echo " │ [Package manage] │"
     echo " ├──────────────────┴─────────────────────────────┐"
     echo " │  1 - Update All Packages   2 - Search Package  │"
-    echo " │  3 - Add Package           4 - Remove Package  │"
+    echo " │  3 - Install Package       4 - Remove Package  │"
     echo " │                                                │"
     echo " │                            0 - Canncel         │"
     echo " └────────────────────────────────────────────────┘"
