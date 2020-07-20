@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+#
+# watasuke
+# Twitter: @Watasuke102
+# Email  : watasuke102@gmail.com
+#
+# (c) 2020 Fascode Network.
+#
+# sysmenu - bash-based system configration scripts for Alter Linux i3wm edition
+#
+set -u
+
+function sound {
+	echo "sound"
+}
+
+function software_manage {
+	echo "software_manage"
+}
+
+function time_settings {
+	echo "time_settings"
+}
+
+
+while true; do
+	clear
+    echo " ┌───────────────┐ "
+    echo " │ [System Menu] │"
+    echo " ├───────────────┴─────────────────────────┐"
+    echo " │  1  Display         2  Network          │"
+    echo " │  3  Sound           4  Software manage  │"
+    echo " │  5  Time settings   6  Taskmanager      │"
+    echo " │                                         │"
+    echo " │                     0  Exit             │"
+    echo " └─────────────────────────────────────────┘"
+
+    echo -n " [select] > "
+	read -n1 selected
+
+	echo ""
+	case ${selected} in
+		0) exit 0          ;;
+		1) arandr          ;;
+		2) nmtui           ;;
+		3) sound           ;;
+		4) software_manage ;;
+		5) time_settings   ;;
+		6) htop            ;;
+	esac
+	echo ""
+
+	echo "Press 0 to exit, any other button to continue"
+    echo -n " [select] > "
+	end_confirmation="1"
+	read -n1 end_confirmation
+	if [[ ${end_confirmation} = "0" ]]; then
+		echo ""
+		exit 0
+	fi
+
+done
