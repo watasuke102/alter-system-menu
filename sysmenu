@@ -51,7 +51,9 @@ function package_manage () {
 		3) sudo pacman -Sy ${package_name} ;;
 		4) sudo pacman -R  ${package_name} ;;
 	esac
-	echo ""
+	echo "Completed"
+	echo "Press any key to continue..."
+	read -n1 selected
 
 	done
 }
