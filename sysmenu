@@ -8,15 +8,16 @@
 #
 # sysmenu - bash-based system configration scripts for Alter Linux i3wm edition
 #
+
 set -u
 
 selected=""
 
-function sound {
+function sound () {
 	echo "sound"
 }
 
-function package_manage {
+function package_manage () {
 	while true; do
 
 	clear
@@ -26,7 +27,7 @@ function package_manage {
     echo " │  1  Update All Packages   2  Search Package  │"
     echo " │  3  Add Package           4  Remove Package  │"
     echo " │                                              │"
-    echo " │                            0  Canncel        │"
+    echo " │                           0  Canncel         │"
     echo " └──────────────────────────────────────────────┘"
 
     echo -n " [select] > "
@@ -62,8 +63,7 @@ function time_settings {
 	echo "time_settings"
 }
 
-
-while true; do
+function main () {
 	clear
     echo " ┌───────────────┐ "
     echo " │ [System Menu] │"
@@ -84,19 +84,21 @@ while true; do
 		1) arandr          ;;
 		2) nmtui           ;;
 		3) sound           ;;
-		4) package_manage ;;
+		4) package_manage  ;;
 		5) time_settings   ;;
 		6) htop            ;;
 	esac
 	echo ""
+}
+
+while true; do
+	main
 
 	echo "Press 0 to exit, any other button to continue"
     echo -n " [select] > "
-	end_confirmation="1"
-	read -n1 end_confirmation
-	if [[ ${end_confirmation} = "0" ]]; then
+	read -n1 selected
+	if [[ ${selected} = "0" ]]; then
 		echo ""
 		exit 0
 	fi
-
 done
