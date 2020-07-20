@@ -13,10 +13,6 @@ set -u
 
 selected=""
 
-function sound () {
-	echo "sound"
-}
-
 function package_manage () {
 	while true; do
 
@@ -119,7 +115,7 @@ function main () {
 		0) exit 0          ;;
 		1) arandr          ;;
 		2) nmtui           ;;
-		3) sound           ;;
+		3) pavucontrol     ;;
 		4) package_manage  ;;
 		5) time_settings   ;;
 		6) htop            ;;
