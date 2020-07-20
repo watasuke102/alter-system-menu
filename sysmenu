@@ -125,12 +125,4 @@ function main () {
 
 while true; do
 	main
-
-	echo "Press 0 to exit, any other button to continue"
-    echo -n " [select] > "
-	read -n1 selected
-	if [[ ${selected} = "0" ]]; then
-		echo ""
-		exit 0
-	fi
 done
