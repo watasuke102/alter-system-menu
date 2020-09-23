@@ -30,4 +30,5 @@ clone this repository, and run `./alter-system-menu`
 - pavucontrol
 - ntpdate
 - htop
-	yay -S arandr networkmanager pavucontrol ntpdate htop
+
+`yay -S arandr networkmanager pavucontrol ntpdate htop`
